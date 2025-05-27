@@ -3,15 +3,24 @@
 
 @theme {
 
-    --fontFamily: "Ubuntu", sans-serif;
-    --colorBlue: #02295a;
-    --colorBlueOne: #adbeff;
-    --colorBlueTwo: #bfe2fd;
-    --colorRed #ed3548;
-    --colorPurple: #473dff;
-    --colorGray: hsl(231, 11%, 63%);
-    --colorGray1: hsl(229, 24%, 87%);
-    --colorGray2: hsl(218, 100%, 97%);
-    --colorGray3 hsl(231, 100%, 99%);
-    --textNormal: 16px;
+    --font-Family: "Ubuntu", sans-serif; 
+    --color-BlueOne: #adbeff;
+    --color-BlueTwo: #bfe2fd;
+    --color-Red: #ed3548;
+    --color-Purple: #473dff;
+    --color-Gray: ​#9699ab;
+     --color-Gray1: ​#d6d9e6; 
+    --color-Gray2: #f0f5ff;
+     --color-Gray3:#fafbff; 
+    --text-Normal: 16px;
+}
+
+@layer utilities {
+  .btnStep {
+    @apply bg-Purple text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring ml-auto cursor-pointer hover:bg-[#184A8A] transition-all duration-300;
+  }
+}
+
+*{
+    font-family: var(--font-Family);
 }

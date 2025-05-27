@@ -7,10 +7,11 @@ function Step1({ formData, updateFormData, errors }) {
   };
 
   return (
-    <div>
-      <h2 className="text-xl font-semibold mb-2">Step 1: Personal Information</h2>
+    <div className="bg-white p-6 roundedflex flex-col h-full">
+      <h2 className="text-xl font-semibold mb-2"> Personal INFO</h2>
+      <p className='text-gray-400 text-sm mb-6'>Please provide your name, email address, and phone number. </p>
       <div className="mb-4">
-        <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+        <label htmlFor="name" className="block text-gray-700 mb-2">
           Name:
         </label>
         <input
@@ -19,7 +20,7 @@ function Step1({ formData, updateFormData, errors }) {
           name="name"
           value={formData.name || ''}
           onChange={handleInputChange}
-          className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring ${
+          className={`w-full bg-transparent text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-Purple hover:border-BlueOne shadow-sm focus:shadow ${
             errors.name ? 'border-red-500' : ''
           }`}
         />
@@ -28,7 +29,7 @@ function Step1({ formData, updateFormData, errors }) {
         )}
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+        <label htmlFor="email" className="block text-gray-700 mb-2">
           Email:
         </label>
         <input
@@ -37,7 +38,7 @@ function Step1({ formData, updateFormData, errors }) {
           name="email"
           value={formData.email || ''}
           onChange={handleInputChange}
-          className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring ${
+          className={`w-full bg-transparent text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-Purple hover:border-BlueOne shadow-sm focus:shadow ${
             errors.email ? 'border-red-500' : ''
           }`}
         />
@@ -45,7 +46,24 @@ function Step1({ formData, updateFormData, errors }) {
           <p className="text-red-500 text-xs italic mt-1">{errors.email}</p>
         )}
       </div>
-      {/* Add more fields for Step 1 */}
+            <div className="mb-4">
+        <label htmlFor="name" className="block text-gray-700 mb-2">
+          Phone Number:
+        </label>
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          value={formData.phone || ''}
+          onChange={handleInputChange}
+          className={`w-full bg-transparent text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-Purple hover:border-BlueOne shadow-sm focus:shadow ${
+            errors.phone ? 'border-red-500' : ''
+          }`}
+        />
+        {errors.phone && (
+          <p className="text-red-500 text-xs italic mt-1">{errors.phone}</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -3,12 +3,15 @@ import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Summary from './components/Summary';
 import './index.css'; // Import Tailwind CSS
+import DesktopLeftSide from './components/DesktopLeftSide';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     step1Data: {},
     step2Data: {},
+    step3Data: {},
+    step4Data: {},
     // Add more steps as needed
   });
   const [errors, setErrors] = useState({});
@@ -42,6 +45,19 @@ function App() {
         currentErrors.name = 'Name is required';
         isValid = false;
       }
+      if ( formData.step1Data.name.length < 8) {
+        currentErrors.name = 'Minimum 8 characters required';
+        isValid = false;
+      }
+      if (!formData.step1Data.phome) {
+        currentErrors.phone = 'Number Phome is required';
+        isValid = false;
+      }
+      if ( formData.step1Data.phone.length < 9) {
+        currentErrors.phone = 'Minimum 9 characters required';
+        isValid = false;
+      }
+        isValid = false;
       if (!formData.step1Data.email) {
         currentErrors.email = 'Email is required';
         isValid = false;
@@ -89,35 +105,40 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Multi-Step Form</h1>
-      {renderStep()}
-      <div className="flex justify-between mt-4">
-        {currentStep > 1 && currentStep < 3 && ( // Only show "Previous" on steps > 1 and < 3
-          <button
-            onClick={prevStep}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:ring"
-          >
-            Previous
-          </button>
-        )}
-        {currentStep < 3 && ( // Only show "Next" on steps < 3
-          <button
-            onClick={nextStep}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring ml-auto" // Use ml-auto to push to the right
-          >
-            Next
-          </button>
-        )}
-        {currentStep === 3 && (
-          <button
-            onClick={() => alert('Order Confirmed!')} // Replace with actual confirmation logic
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring"
-          >
-            Confirm Order
-          </button>
-        )}
+    <div className="min-h-screen flex justify-center items-center bg-gray-200">
+    <div className="lg:grid lg:grid-cols-12 relative w-2/3 bg-white rounded-lg p-4">
+      <DesktopLeftSide />
+      <div className="col-span-1 bg-white"></div>
+      <div className="col-span-7">
+        {renderStep()}
+        <div className="flex justify-between mt-4 absolute bottom-10 left-0 right-20">
+          {currentStep > 1 && currentStep < 3 && ( // Only show "Previous" on steps > 1 and < 3
+            <button
+              onClick={prevStep}
+              className="btnStep"
+            >
+              Previous
+            </button>
+          )}
+          {currentStep < 3 && ( // Only show "Next" on steps < 3
+            <button
+              onClick={nextStep}
+              className="btnStep" // Use ml-auto to push to the right
+            >
+              Next Step
+            </button>
+          )}
+          {currentStep === 3 && (
+            <button
+              onClick={() => alert('Order Confirmed!')} // Replace with actual confirmation logic
+              className="btnStep"
+            >
+              Confirm Order
+            </button>
+          )}
+        </div>
       </div>
+    </div>
     </div>
   );
 }
