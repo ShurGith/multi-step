@@ -1,1 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import "tailwindcss";
+
+@theme {
+
+    --fontFamily: "Ubuntu", sans-serif;
+    --colorBlue: #02295a;
+    --colorBlueOne: #adbeff;
+    --colorBlueTwo: #bfe2fd;
+    --colorRed #ed3548;
+    --colorPurple: #473dff;
+    --colorGray: hsl(231, 11%, 63%);
+    --colorGray2: hsl(231, 11%, 63%);
+    --colorGray3: hsl(229, 24%, 87%);
+    --colorGray4: hsl(218, 100%, 97%);
+    --colorGray5 hsl(231, 100%, 99%);
+}
