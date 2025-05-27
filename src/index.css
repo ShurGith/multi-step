@@ -10,8 +10,8 @@
     --colorRed #ed3548;
     --colorPurple: #473dff;
     --colorGray: hsl(231, 11%, 63%);
-    --colorGray2: hsl(231, 11%, 63%);
-    --colorGray3: hsl(229, 24%, 87%);
-    --colorGray4: hsl(218, 100%, 97%);
-    --colorGray5 hsl(231, 100%, 99%);
+    --colorGray1: hsl(229, 24%, 87%);
+    --colorGray2: hsl(218, 100%, 97%);
+    --colorGray3 hsl(231, 100%, 99%);
+    --textNormal: 16px;
 }
