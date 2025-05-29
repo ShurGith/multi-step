@@ -38,9 +38,6 @@
     @apply text-azul font-extralight mb-2;
   }
 
-  .label-option {
-    @apply flex flex-col size-42 items-start border rounded-md border-Purple/40 cursor-pointer px-12 py-6 hover:border-Purple transition duration-100 ease-in-out;
-  }
 
 }
 

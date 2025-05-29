@@ -1,37 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MainContext } from "../context/MainContext";
 
-const initialAddOnsData = [
-  {
-    id: "onlineService",
-    title: "Online service",
-    description: "Access to multiplayer games",
-    priceText: "+$10/yr",
-    price: 10,
-    priceTextMonthly: "+$1/mo",
-    priceMonthly: 1,
-    checked: false,
-  },
-  {
-    id: "largerStorage",
-    title: "Larger storage",
-    description: "Extra 1TB of cloud save",
-    priceText: "+$20/yr",
-    price: 20,
-    priceTextMonthly: "+$2/mo",
-    priceMonthly: 2,
-    checked: false,
-  },
-  {
-    id: "customizableProfile",
-    title: "Customizable profile",
-    description: "Custom theme on your profile",
-    priceText: "+$30/yr",
-    price: 30,
-    priceTextMonthly: "+$3mo",
-    priceMonthly: 3,
-    checked: false,
-  },
-];
 
 const CheckIcon = () => (
   <svg
@@ -49,6 +18,8 @@ const CheckIcon = () => (
 );
 
 function Step3({ formData, isYearly, updateFormData, errors }) {
+
+  const { initialAddOnsData } = useContext(MainContext);
   const [addOns, setAddOns] = useState(initialAddOnsData);
 
   const handleToggleAddOn = (id) => {
