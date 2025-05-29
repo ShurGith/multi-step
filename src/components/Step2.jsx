@@ -16,8 +16,8 @@ function Step2({ formData, updateFormData, errors }) {
       <p className="text-gray-400 text-sm mb-6">
         You have the option of monthly or yearly billing
       </p>
-      <div className="flex flex-coljustify-start w-full">
-        <div className="flex flex-col items-center gap-4 w-full">
+      <div className="flex flex-col justify-start w-full">
+        <div className="flex flex-col md:flex-row items-center gap-4 w-full">
           {plansData.map((plan, index) => (
             <PlanInput
               key={plan.id}

@@ -10,7 +10,7 @@ function PlanInput({ image, isYearly, updateFormData, formData, number }) {
     };
 
     return (
-        <label className={`flex w-full items-start pl-4 py-4  gap-1 border rounded-md cursor-pointerhover:border-Purple
+        <label className={`flex w-full items-start pl-4 py-4  gap-1 border rounded-md cursor-pointer hover:border-Purple
      transition duration-100 ease-in-out ${formData.selection === value ? "border-Purple border-2 cursor-not-allowed" : "border-Purple/40 cursor-pointer"}`}>
             <img
                 src={`/images/${image}`}
