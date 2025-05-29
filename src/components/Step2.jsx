@@ -11,13 +11,13 @@ function Step2({ formData, updateFormData, errors }) {
   };
 
   return (
-    <div className="bg-white p-6 roundedflex flex-col h-full">
+    <>
       <h2 className="tagH2">Select your plan</h2>
       <p className="text-gray-400 text-sm mb-6">
         You have the option of monthly or yearly billing
       </p>
-      <div className="flex justify-start w-full">
-        <div className="flex items-center gap-6 w-full">
+      <div className="flex flex-coljustify-start w-full">
+        <div className="flex flex-col items-center gap-4 w-full">
           {plansData.map((plan, index) => (
             <PlanInput
               key={plan.id}
@@ -30,7 +30,7 @@ function Step2({ formData, updateFormData, errors }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-6 w-full gap-6 bg-BlueTwo/10 rounded-lg py-3 text-sm font-medium dark:text-gray-300 ">
+      <div className="flex justify-center items-center mt-6 w-full gap-2 bg-BlueTwo/10 rounded-lg py-3 text-sm font-medium dark:text-gray-300 ">
         <span className={`${!isYearly ? 'text-azul' : 'text-azul/30'}`}>
           Monthly
         </span>
@@ -54,7 +54,7 @@ function Step2({ formData, updateFormData, errors }) {
           <p className="text-white/80 text-xl w-full border italic text-center mt-12 rounded-lg bg-Red">{errors.selection}</p>
           </div>
         )}
-    </div>
+    </>
   );
 }
 

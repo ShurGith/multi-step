@@ -73,7 +73,7 @@ const useWindowSize = () => {
 };
 
 export const MainContextProvider = ({ children }) => {
-  const [currentStep, setCurrentStep] = useState(4);
+  const [currentStep, setCurrentStep] = useState(2);
   return (
     <MainContext.Provider
       value={{

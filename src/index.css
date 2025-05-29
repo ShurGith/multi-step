@@ -9,7 +9,7 @@
   --color-BlueTwo: #EEF5FF;
   --color-Red: #ed3548;
   --color-Purple: #473dff;
-  --color-Gray: ​#9699ab;
+  --color-Gray: ​#969696;
   --color-Gray1: ​#d6d9e6;
   --color-Gray2: #f0f5ff;
   --color-Gray3: #fafbff;
@@ -23,7 +23,7 @@
   }
 
   .btnBack {
-    @apply text-azul/35 font-bold py-2 px-4 rounded focus:outline-none focus:ring ml-auto cursor-pointer hover:text-azul transition-all duration-300;
+    @apply text-gray-400  py-2 px-4 rounded focus:outline-none focus:ring cursor-pointer hover:text-azul transition-all duration-300;
   }
 
   .tagH2 {

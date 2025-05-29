@@ -7,7 +7,7 @@ function Step1({ formData, updateFormData, errors }) {
   };
 
   return (
-    <div className="bg-white p-6 roundedflex flex-col h-full">
+   <>
       <h2 className="tagH2"> Personal info</h2>
       <p className='parrafoInfo'>Please provide your name, email address, and phone number. </p>
       <div className="mb-4">
@@ -20,6 +20,7 @@ function Step1({ formData, updateFormData, errors }) {
           name="name"
           value={formData.name || ''}
           onChange={handleInputChange}
+          placeholder='e.g. Stephen King'
           className={`w-full bg-transparent text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-Purple hover:border-BlueOne shadow-sm focus:shadow ${
             errors.name ? 'border-red-500' : ''
           }`}
@@ -38,6 +39,7 @@ function Step1({ formData, updateFormData, errors }) {
           name="email"
           value={formData.email || ''}
           onChange={handleInputChange}
+          placeholder='e.g. stephenking@lorem.com'
           className={`w-full bg-transparent text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-Purple hover:border-BlueOne shadow-sm focus:shadow ${
             errors.email ? 'border-red-500' : ''
           }`}
@@ -56,6 +58,7 @@ function Step1({ formData, updateFormData, errors }) {
           name="phone"
           value={formData.phone || ''}
           onChange={handleInputChange}
+          placeholder='e.g. +1 234 567 890'
           className={`w-full bg-transparent text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-Purple hover:border-BlueOne shadow-sm focus:shadow ${
             errors.phone ? 'border-red-500' : ''
           }`}
@@ -64,7 +67,7 @@ function Step1({ formData, updateFormData, errors }) {
           <p className="text-red-500 text-xs italic mt-1">{errors.phone}</p>
         )}
       </div>
-    </div>
+    </>
   );
 }
 
