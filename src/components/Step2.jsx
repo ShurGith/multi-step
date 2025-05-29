@@ -30,8 +30,8 @@ function Step2({ formData, updateFormData, errors }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-6 w-full gap-2">
-        <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
+      <div className="flex justify-center items-center mt-6 w-full gap-6 bg-BlueTwo/10 rounded-lg py-3 text-sm font-medium dark:text-gray-300 ">
+        <span className={`${!isYearly ? 'text-azul' : 'text-azul/30'}`}>
           Monthly
         </span>
         <label htmlFor="toggle" className="flex items-center cursor-pointer">
@@ -44,7 +44,7 @@ function Step2({ formData, updateFormData, errors }) {
           />
           <div className="relative w-12 h-6 bg-azul rounded-full peer dark:bg-azul peer-checked:after:translate-x-6  after:absolute after:top-[2.5px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:size-4.5 after:transition-all dark:border-gray-600"></div>
         </label>
-        <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
+        <span className={`${isYearly ? 'text-azul' : 'text-azul/30'}`}>
           Yearly
         </span>
       </div>

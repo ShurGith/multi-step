@@ -3,8 +3,8 @@ import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
 import Summary from './components/Summary';
-import './index.css'; // Import Tailwind CSS
-import DesktopLeftSide from './components/DesktopLeftSide';
+import './index.css'; 
+import DesktopLeftSide from './components/partials/DesktopLeftSide';
 import { useMainContext } from "./context/MainContext.jsx";
 
 function App() {

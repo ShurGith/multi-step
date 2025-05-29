@@ -18,7 +18,6 @@ const CheckIcon = () => (
 );
 
 function Step3({ formData, isYearly, updateFormData, errors }) {
-
   const { initialAddOnsData } = useContext(MainContext);
   const [addOns, setAddOns] = useState(initialAddOnsData);
 
@@ -33,7 +32,6 @@ function Step3({ formData, isYearly, updateFormData, errors }) {
   useEffect(() => {
     const currentSelectedAddOns = addOns.filter((addOn) => addOn.checked);
     updateFormData({ ...formData, selectedAddOns: currentSelectedAddOns });
-
     // Para depuración: ver qué se está enviando al padre
     // console.log('useEffect: Actualizando formData con selectedAddOns:', currentSelectedAddOns);
 
@@ -41,7 +39,7 @@ function Step3({ formData, isYearly, updateFormData, errors }) {
  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addOns]); 
 
-  // Si necesitas los add-ons seleccionados para mostrar algo en ESTE componente:
+  // Si se neceistan los add-ons seleccionados para mostrar algo en ESTE componente:
   //const currentlySelectedForDisplay = addOns.filter((addOn) => addOn.checked);
    //console.log('Render: AddOns seleccionados para mostrar:', currentlySelectedForDisplay);
 
@@ -110,8 +108,8 @@ useEffect(() => {
               <p className="text-sm text-azul/80">{addOn.description}</p>
             </div>
             <span className="text-sm text-Purple font-medium ml-4">
-               { isYearly ?  addOn.priceText:addOn.priceTextMonthly}
-            </span>
+               {`$${isYearly ?addOn.price:addOn.priceMonthly}${isYearly ? "/yr" : "/mo"}`}
+               </span>
           </label>
         ))}
       </div>
