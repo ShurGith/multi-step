@@ -18,7 +18,6 @@ function PlanInput({ image, isYearly, updateFormData, formData, number }) {
                 className="size-12 object-contain"
             />
             <div className="w-full flex flex-col items-start pb-4">
-
                 <input
                     type="radio"
                     className="opacity-0 -z-1 abosulute size-1"

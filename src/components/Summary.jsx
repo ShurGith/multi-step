@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useMainContext } from "../context/MainContext";
 
 function Summary({ formData }) {
+  const { setCurrentStep } = useMainContext();
   const addOns = formData.step3Data.selectedAddOns || [];
-  
   const isYearly = formData.step2Data.isYearly;
 
   const theAddonPrice = isYearly ? addOns.reduce((total, addOn) => total + +addOn.price, 0)
@@ -10,13 +10,8 @@ function Summary({ formData }) {
 
   const thePlanPrice = isYearly ? formData.step2Data.price : formData.step2Data.priceMonthly
 
-
-
- //const thePlanPrice = isYearly ? setPlanPrice(formData.step2Data.price):''
-
   const theAmount = thePlanPrice + theAddonPrice
   const monthlyYearly = isYearly ? "/yr" : "/mo"
-console.log(thePlanPrice, theAddonPrice, theAmount, isYearly);
 
   return (
     <div className="bg-white p-6 roundedflex flex-col h-full">
@@ -28,8 +23,9 @@ console.log(thePlanPrice, theAddonPrice, theAmount, isYearly);
       <div className="mb-4 bg-Gray3 py-4 px-8 rounded-lg mt-16">
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
-            <h4 className="text-azul font-bold mb-1">{formData.step2Data.title} {formData.step2Data.isYearly ? ' (Yearly)' : ''}</h4>
-            <p>Change</p>
+            <h4 className="text-azul font-bold mb-1">{formData.step2Data.title} {isYearly ? ' (Yearly)' : ''}</h4>
+            <p className="text-gray-400 mt-1 underline cursor-pointer"
+            onClick={() => setCurrentStep(2)}>Change</p>
           </div>
           <p className="text-azul font-bold">${ isYearly ? formData.step2Data.price : formData.step2Data.priceMonthly}{monthlyYearly}</p>
         </div>
@@ -37,12 +33,12 @@ console.log(thePlanPrice, theAddonPrice, theAmount, isYearly);
         {addOns.map((addOn, index) => (
           <div key={index} className="flex justify-between items-center mt-2 gap-8">
             <p className="text-gray-400 mt-4">{addOn.title}</p>
-            <p className="text-gray-400 ">+${formData.step2Data.isYearly ? addOn.price : addOn.priceMonthly}{monthlyYearly}</p>
+            <p className="text-gray-400 ">+${isYearly ? addOn.price : addOn.priceMonthly}{monthlyYearly}</p>
           </div>
         ))}
       </div>
       <div className="flex justify-between items-center mt-8 px-8">
-        <p className="text-gray-400">Total ({formData.step2Data.isYearly ? 'per year' : 'per month'}) </p>
+        <p className="text-gray-400">Total ({isYearly ? 'per year' : 'per month'}) </p>
         <p className="text-azul font-bold">${theAmount}{monthlyYearly}</p>
       </div>
     </div>

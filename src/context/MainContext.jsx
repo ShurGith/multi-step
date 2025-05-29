@@ -1,5 +1,8 @@
 import { createContext, useState, useContext } from "react";
 
+// es-lint-disable-next-line react-refresh/only-export-components
+export const MainContext = createContext();
+
 const initialAddOnsData = [
   {
     id: "onlineService",
@@ -51,11 +54,9 @@ const plansData = [
   },
 ];
 
-export const MainContext = createContext();
-
 export const MainContextProvider = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(2);
-
+  const [errors, setErrors] = useState({});
   return (
     <MainContext.Provider
       value={{
@@ -63,6 +64,8 @@ export const MainContextProvider = ({ children }) => {
         setCurrentStep,
         initialAddOnsData,
         plansData,
+        errors,
+        setErrors,
       }}
     >
       {children}
