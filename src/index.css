@@ -3,24 +3,47 @@
 
 @theme {
 
-    --font-Family: "Ubuntu", sans-serif; 
-    --color-BlueOne: #adbeff;
-    --color-BlueTwo: #bfe2fd;
-    --color-Red: #ed3548;
-    --color-Purple: #473dff;
-    --color-Gray: ​#9699ab;
-     --color-Gray1: ​#d6d9e6; 
-    --color-Gray2: #f0f5ff;
-     --color-Gray3:#fafbff; 
-    --text-Normal: 16px;
+  --font-Family: "Ubuntu", sans-serif;
+  --color-azul: #062B5A;
+  --color-BlueOne: #adbeff;
+  --color-BlueTwo: #bfe2fd;
+  --color-Red: #ed3548;
+  --color-Purple: #473dff;
+  --color-Gray: ​#9699ab;
+  --color-Gray1: ​#d6d9e6;
+  --color-Gray2: #f0f5ff;
+  --color-Gray3: #fafbff;
+  --text-Normal: 16px;
 }
 
-@layer utilities {
+@layer components {
+
   .btnStep {
-    @apply bg-Purple text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring ml-auto cursor-pointer hover:bg-[#184A8A] transition-all duration-300;
+    @apply bg-azul text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring ml-auto cursor-pointer hover:bg-azul/70 transition-all duration-300;
   }
+
+  .btnBack {
+    @apply text-azul/35 font-bold py-2 px-4 rounded focus:outline-none focus:ring ml-auto cursor-pointer hover:text-azul transition-all duration-300;
+  }
+
+  .tagH2 {
+    @apply text-azul font-bold text-3xl mb-2;
+  }
+
+  .parrafoInfo {
+    @apply text-azul/50 text-lg mb-6;
+  }
+
+  .label {
+    @apply text-azul font-extralight mb-2;
+  }
+
+  .label-option {
+    @apply flex flex-col size-42 items-start border rounded-md border-Purple/40 cursor-pointer px-12 py-6 hover:border-Purple transition duration-100 ease-in-out;
+  }
+
 }
 
-*{
-    font-family: var(--font-Family);
+* {
+  font-family: var(--font-Family);
 }

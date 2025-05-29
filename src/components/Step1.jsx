@@ -8,10 +8,10 @@ function Step1({ formData, updateFormData, errors }) {
 
   return (
     <div className="bg-white p-6 roundedflex flex-col h-full">
-      <h2 className="text-xl font-semibold mb-2"> Personal INFO</h2>
-      <p className='text-gray-400 text-sm mb-6'>Please provide your name, email address, and phone number. </p>
+      <h2 className="tagH2"> Personal info</h2>
+      <p className='parrafoInfo'>Please provide your name, email address, and phone number. </p>
       <div className="mb-4">
-        <label htmlFor="name" className="block text-gray-700 mb-2">
+        <label htmlFor="name" className="label">
           Name:
         </label>
         <input
@@ -29,8 +29,8 @@ function Step1({ formData, updateFormData, errors }) {
         )}
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-700 mb-2">
-          Email:
+        <label htmlFor="email" className="label">
+          Email address:
         </label>
         <input
           type="email"
@@ -47,7 +47,7 @@ function Step1({ formData, updateFormData, errors }) {
         )}
       </div>
             <div className="mb-4">
-        <label htmlFor="name" className="block text-gray-700 mb-2">
+        <label htmlFor="name" className="label">
           Phone Number:
         </label>
         <input

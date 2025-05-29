@@ -1,34 +1,38 @@
-import React, { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Step1 from './components/Step1';
 import Step2 from './components/Step2';
+import Step3 from './components/Step3';
 import Summary from './components/Summary';
 import './index.css'; // Import Tailwind CSS
 import DesktopLeftSide from './components/DesktopLeftSide';
+import { useMainContext } from "./context/MainContext.jsx";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const {currentStep, setCurrentStep} = useMainContext();
   const [formData, setFormData] = useState({
     step1Data: {},
-    step2Data: {},
+    step2Data: {selection: 'arcade', isYearly: false},
     step3Data: {},
     step4Data: {},
     // Add more steps as needed
   });
   const [errors, setErrors] = useState({});
 
-  const updateFormData = (step, data) => {
+  const updateFormData = useCallback((step, data) => {
     setFormData(prevData => ({
       ...prevData,
       [step]: data,
     }));
-  };
+       console.log('Form data:', formData);
+  }, []);
 
   const nextStep = () => {
     // Implement validation here before advancing
     if (validateStep(currentStep)) {
       setCurrentStep(prevStep => prevStep + 1);
       setErrors({}); // Clear errors on successful step completion
-    }
+    }      
+       console.log('Form data:', formData);
   };
 
   const prevStep = () => {
@@ -44,20 +48,17 @@ function App() {
       if (!formData.step1Data.name) {
         currentErrors.name = 'Name is required';
         isValid = false;
-      }
-      if ( formData.step1Data.name.length < 8) {
-        currentErrors.name = 'Minimum 8 characters required';
+      }else if ( formData.step1Data.name.length < 4) {
+        currentErrors.name = 'Minimum 4 characters required';
         isValid = false;
       }
-      if (!formData.step1Data.phome) {
+      if (!formData.step1Data.phone) {
         currentErrors.phone = 'Number Phome is required';
         isValid = false;
-      }
-      if ( formData.step1Data.phone.length < 9) {
+      }else if ( formData.step1Data.phone.length < 9) {
         currentErrors.phone = 'Minimum 9 characters required';
         isValid = false;
       }
-        isValid = false;
       if (!formData.step1Data.email) {
         currentErrors.email = 'Email is required';
         isValid = false;
@@ -97,7 +98,15 @@ function App() {
             errors={errors}
           />
         );
-      case 3:
+        case 3:
+          return (
+            <Step3
+              formData={formData.step3Data}
+              updateFormData={data => updateFormData('step3Data', data)}
+              errors={errors}
+            />
+          );
+      case 4:
         return <Summary formData={formData} />;
       default:
         return <div>Unknown step</div>;
@@ -112,15 +121,15 @@ function App() {
       <div className="col-span-7">
         {renderStep()}
         <div className="flex justify-between mt-4 absolute bottom-10 left-0 right-20">
-          {currentStep > 1 && currentStep < 3 && ( // Only show "Previous" on steps > 1 and < 3
+          {currentStep > 1  && ( // Only show "Previous" on steps > 1
             <button
               onClick={prevStep}
-              className="btnStep"
+              className="btnBack"
             >
-              Previous
+              Go back
             </button>
           )}
-          {currentStep < 3 && ( // Only show "Next" on steps < 3
+          {currentStep < 4 && ( // Only show "Next" on steps < 3
             <button
               onClick={nextStep}
               className="btnStep" // Use ml-auto to push to the right
@@ -128,7 +137,7 @@ function App() {
               Next Step
             </button>
           )}
-          {currentStep === 3 && (
+          {currentStep === 4 && (
             <button
               onClick={() => alert('Order Confirmed!')} // Replace with actual confirmation logic
               className="btnStep"
