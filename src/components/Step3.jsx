@@ -1,7 +1,5 @@
-// src/components/Step3.jsx (o tu nombre de archivo)
 import React, { useEffect, useState } from "react";
 
-// Datos iniciales para los add-ons (sin cambios)
 const initialAddOnsData = [
   {
     id: "onlineService",
@@ -9,6 +7,8 @@ const initialAddOnsData = [
     description: "Access to multiplayer games",
     priceText: "+$10/yr",
     price: 10,
+    priceTextMonthly: "+$1/mo",
+    priceMonthly: 1,
     checked: false,
   },
   {
@@ -17,6 +17,8 @@ const initialAddOnsData = [
     description: "Extra 1TB of cloud save",
     priceText: "+$20/yr",
     price: 20,
+    priceTextMonthly: "+$2/mo",
+    priceMonthly: 2,
     checked: false,
   },
   {
@@ -25,11 +27,12 @@ const initialAddOnsData = [
     description: "Custom theme on your profile",
     priceText: "+$30/yr",
     price: 30,
+    priceTextMonthly: "+$3mo",
+    priceMonthly: 3,
     checked: false,
   },
 ];
 
-// Icono de check (sin cambios)
 const CheckIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +48,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-function Step3({ formData, updateFormData, errors }) {
+function Step3({ formData, isYearly, updateFormData, errors }) {
   const [addOns, setAddOns] = useState(initialAddOnsData);
 
   const handleToggleAddOn = (id) => {
@@ -76,7 +79,7 @@ useEffect(() => {
   // Sincronizar el estado interno 'addOns' si hay valores en formData.selectedAddOns
   // Esto es útil si Step3 puede montarse con add-ons ya seleccionados desde el padre.
   if (formData && formData.selectedAddOns && formData.selectedAddOns.length > 0) {
-    const parentSelectedIds = new Set(formData.selectedAddOns.map(ao => ao.id)); // Asumiendo que selectedAddOns en formData es un array de objetos con id
+    const parentSelectedIds = new Set(formData.selectedAddOns.map(ao => ao.id)); 
     setAddOns(prevAddOns => 
       prevAddOns.map(localAddOn => ({
         ...localAddOn,
@@ -84,11 +87,9 @@ useEffect(() => {
       }))
     );
   }
-  // Este efecto podría depender de una parte específica de formData, por ejemplo:
-  // }, [formData.selectedAddOns]); 
-  // Pero ten cuidado para no reintroducir bucles. A menudo se ejecuta solo al montar: }, []);
-  // O necesitas una lógica más cuidadosa para determinar cuándo sincronizar.
-}, []); // Ejecutar solo al montar para inicializar, o con dependencias más específicas.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
 
 
    
@@ -99,7 +100,7 @@ useEffect(() => {
         className="text-gray-400 text-sm mb-6"
         onClick={() => {
           console.log('Click debug: AddOns actuales:', addOns.filter(ao => ao.checked));
-          console.log('Click debug: Prop formData actual:', formData);
+          console.log('Click debug: Prop formData actual:', isYearly);
         }}
       >
         Add-ons help enhance your gaming experience.
@@ -138,7 +139,7 @@ useEffect(() => {
               <p className="text-sm text-azul/80">{addOn.description}</p>
             </div>
             <span className="text-sm text-Purple font-medium ml-4">
-              {addOn.priceText}
+               { isYearly ?  addOn.priceText:addOn.priceTextMonthly}
             </span>
           </label>
         ))}

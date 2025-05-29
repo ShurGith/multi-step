@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+
 function Step2({ formData, updateFormData, errors }) {
+
   const handleSwitchChange = (e) => {
     updateFormData({ ...formData, isYearly: e.target.checked });
   };
@@ -10,6 +13,8 @@ function Step2({ formData, updateFormData, errors }) {
     });
     e.target.parentElement.classList.add("border-Purple");
   };
+
+  console.log(formData.selection);
 
   return (
     <div className="bg-white p-6 roundedflex flex-col h-full">
@@ -91,7 +96,7 @@ function Step2({ formData, updateFormData, errors }) {
             type="checkbox"
             id="toggle"
             className="sr-only peer cursor-pointer"
-           // checked={formData.billing === "yearly"}
+            checked={formData.isYearly}
             onChange={handleSwitchChange}
           />
           <div className="relative w-12 h-6 bg-azul rounded-full peer dark:bg-azul peer-checked:after:translate-x-6  after:absolute after:top-[2.5px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:size-4.5 after:transition-all dark:border-gray-600"></div>

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import {  useState } from 'react';
 import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
@@ -11,20 +11,20 @@ function App() {
   const {currentStep, setCurrentStep} = useMainContext();
   const [formData, setFormData] = useState({
     step1Data: {},
-    step2Data: {selection: 'arcade', isYearly: false},
+    step2Data: {},
     step3Data: {},
     step4Data: {},
     // Add more steps as needed
   });
   const [errors, setErrors] = useState({});
 
-  const updateFormData = useCallback((step, data) => {
+  const updateFormData = (step, data) => {
     setFormData(prevData => ({
       ...prevData,
       [step]: data,
     }));
        console.log('Form data:', formData);
-  }, []);
+  }
 
   const nextStep = () => {
     // Implement validation here before advancing
@@ -101,6 +101,7 @@ function App() {
         case 3:
           return (
             <Step3
+              isYearly={formData.step2Data.isYearly}
               formData={formData.step3Data}
               updateFormData={data => updateFormData('step3Data', data)}
               errors={errors}
