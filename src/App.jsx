@@ -116,7 +116,7 @@ function App() {
     <div className="w-full min-h-screen flex lg:justify-center lg:items-center bg-gray-200">
       <div className="w-full grid lg:grid-cols-12 relative lg:w-2/3 bg-BlueTwo lg:bg-white lg:rounded-lg lg:p-4">
         <DesktopLeftSide />
-        <div className=" bg-white w-11/12 rounded-xl transform  mx-auto lg:w-full lg:col-start-5 lg:col-span-8 lg:p-8">
+        <div className=" bg-white w-11/12 rounded-xl transform  mx-auto lg:w-full lg:col-start-5 lg:col-span-8 lg:p-8"> {/* DIV DATOS */  }
           {renderStep()}
           <div className="flex justify-between mt-4 absolute bottom-10 left-0 right-20">
             {currentStep > 1 && currentStep < 4 && (
