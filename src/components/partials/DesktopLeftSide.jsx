@@ -3,17 +3,19 @@ import LeftComponent from "./LeftComponent";
 
 
 function DesktopLeftSide() {
-    const { currentStep } = useMainContext();
-    const steps = [
-        { index: 0, title: "your info" },
-        { index: 1, title: "select plan" },
-        { index: 2, title: "add-ons" },
-        { index: 3, title: "summary" },
-    ];
+    const { currentStep, steps,useWindowSize } = useMainContext();
+    const BackgroundChanger = () => {
+        const [width] = useWindowSize(); 
+
+        const bgMobile = '/images/bg-sidebar-mobile.svg';
+        const bgDesktop = '/images/bg-sidebar-desktop.svg'; 
+      return  width < 768 ? bgMobile : bgDesktop;;
+        
+    }
     return (
-        <div className="col-span-3 rounded-lg"
-            style={{ backgroundImage: 'url("/images/bg-sidebar-desktop.svg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="flex w-full h-full flex-col mt-4 ml-8 items-center min-h-[600px]">
+        <div className="w-full col-span-3 rounded-lg"
+            style={{ backgroundImage: `url(${BackgroundChanger()})`, backgroundRepeat: 'no-repeat', backgroundSize: 'fill', backgroundPosition: 'center' }}>
+            <div className="flex items-center justify-center pt-6 pb-24 pl-6 w-full lg:h-full lg:flex-col lg:mt-4 lg:ml-8 lg:min-h-[600px]">
                {
                steps.map((step) => {
                 return <LeftComponent key={step.index} currentStep={currentStep} index={step.index} title={step.title} />

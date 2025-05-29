@@ -48,7 +48,6 @@ function Step2({ formData, updateFormData, errors }) {
           Yearly
         </span>
       </div>
-      {/* Add more fields for Step 2 */}
 
         {errors.selection && (
           <div className="flex items-center gap-2">
