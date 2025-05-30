@@ -33,12 +33,8 @@ Users should be able to:
 - [Tailwindcss](https://tailwindcss.com/) - React framework
 
 ### Screenshot
-
-<img src="/public/images/step5.jpeg" alt="Descripción de la imagen" width="500" height="300"> <!-- Ejemplo con tamaño específico -->
-
-
-<img src="/public/images/step1.jpeg" alt="Step1" width="200"> <!-- Ejemplo solo con ancho -->
-<img src="/public/images/step2.jpeg" alt="Step2" width="200">
-<img src="/public/images/step3.jpeg" alt="Step3" width="200">
-<img src="/public/images/step4.jpeg" alt="Step4" width="200">
-<img src="/public/images/step5.jpeg" alt="Step5" width="200">
+<img src="/public/images/step1.jpeg" alt="Step1" width="300"> <!-- Ejemplo solo con ancho -->
+<img src="/public/images/step2.jpeg" alt="Step2" width="300">
+<img src="/public/images/step3.jpeg" alt="Step3" width="300">
+<img src="/public/images/step4.jpeg" alt="Step4" width="300">
+<img src="/public/images/step5.jpeg" alt="Step5" width="300">
