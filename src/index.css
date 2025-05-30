@@ -30,10 +30,7 @@
     @apply text-azul font-bold text-3xl mb-2;
   }
 
-  .parrafoInfo {
-    @apply text-azul/50 text-lg mb-6;
-  }
-
+  
   .label {
     @apply text-azul font-extralight mb-2;
   }

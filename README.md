@@ -1,12 +1,44 @@
-# React + Vite
+# Frontend Mentor - Multi-step form solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmententor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+### The challenge
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Users should be able to:
 
-## Expanding the ESLint configuration
+- Complete each step of the sequence
+- Go back to a previous step to update their selections
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Receive form validation messages if:
+  - A field has been missed
+  - The email address is not formatted correctly
+  - A step is submitted, but no selection has been made
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+### Links
+
+- Solution URL: [Github](https://github.com/ShurGith/multi-step)
+- Live Site URL: [Netlify](https://multistepfrontmentor.netlify.app/)
+
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Tailwindcss](https://tailwindcss.com/) - React framework
+
+### Screenshot
+
+<img src="/public/images/step5.jpeg" alt="Descripción de la imagen" width="500" height="300"> <!-- Ejemplo con tamaño específico -->
+
+
+<img src="/public/images/step1.jpeg" alt="Step1" width="200"> <!-- Ejemplo solo con ancho -->
+<img src="/public/images/step2.jpeg" alt="Step2" width="200">
+<img src="/public/images/step3.jpeg" alt="Step3" width="200">
+<img src="/public/images/step4.jpeg" alt="Step4" width="200">
+<img src="/public/images/step5.jpeg" alt="Step5" width="200">

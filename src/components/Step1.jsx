@@ -9,7 +9,7 @@ function Step1({ formData, updateFormData, errors }) {
   return (
    <>
       <h2 className="tagH2"> Personal info</h2>
-      <p className='parrafoInfo'>Please provide your name, email address, and phone number. </p>
+      <p className='text-gray-400 text-sm mb-6'>Please provide your name, email address, and phone number. </p>
       <div className="mb-4">
         <label htmlFor="name" className="label">
           Name:
