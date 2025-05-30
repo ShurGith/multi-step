@@ -11,7 +11,7 @@ function DesktopLeftSide() {
         return width < 768 ? bgMobile : bgDesktop;
     }
     return (
-            <div className="flex h-[180px] w-full items-start justify-center pt-6 gap-4"
+            <div className="flex md:flex-col min-h-[180px] md:w-2/5 items-start justify-center md:justify-start pt-6 md:pt-4 md:pl-6 gap-4 md:gap-10 md:rounded-xl "
             style={{ backgroundImage: `url(${BackgroundChanger()})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                {
                steps.map((step) => {

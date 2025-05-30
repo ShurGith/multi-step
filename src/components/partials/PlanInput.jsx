@@ -10,8 +10,8 @@ function PlanInput({ image, isYearly, updateFormData, formData, number }) {
     };
 
     return (
-        <label className={`flex w-full items-start pl-4 py-4  gap-1 border rounded-md cursor-pointer hover:border-Purple
-     transition duration-100 ease-in-out ${formData.selection === value ? "border-Purple border-2 cursor-not-allowed" : "border-Purple/40 cursor-pointer"}`}>
+        <label className={`flex md:flex-col w-full items-start pl-3 py-4 gap-1 border rounded-md cursor-pointer hover:border-Purple
+     transition duration-100 ease-in-out ${formData.selection === value ? "border-Purple/60 border-2 cursor-not-allowed bg-BlueTwo/30" : "border-Purple/40 cursor-pointer"}`}>
             <img
                 src={`/images/${image}`}
                 alt={`Option ${value}`}
@@ -25,9 +25,9 @@ function PlanInput({ image, isYearly, updateFormData, formData, number }) {
                     checked={formData.selection === value}
                     onChange={handleSelectionChange}
                 />
-            <div className="flex flex-col ">
+            <div className="flex flex-col mt-6">
                 <h3 className="text-xl text-azul">{plansData[number].title}</h3>
-                <h4 className="text-sm text-azul/60 w-full">{`$${price}${isYearly ? "/yr" : "/mo"}`}</h4>
+                <h4 className="text-sm text-azul/60">{`$${price}${isYearly ? "/yr" : "/mo"}`}</h4>
                 {isYearly && <h4 className="text-xs text-azul mt-2">2 months free</h4>}
             </div>
         </label>

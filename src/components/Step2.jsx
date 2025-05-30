@@ -30,7 +30,7 @@ function Step2({ formData, updateFormData, errors }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-6 w-full gap-2 bg-BlueTwo/10 rounded-lg py-3 text-sm font-medium dark:text-gray-300 ">
+      <div className="flex justify-center items-center mt-6 w-full gap-8 bg-BlueTwo/30 rounded-lg py-3 text-sm font-medium dark:text-gray-300 ">
         <span className={`${!isYearly ? 'text-azul' : 'text-azul/30'}`}>
           Monthly
         </span>

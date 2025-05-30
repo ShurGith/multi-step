@@ -22,7 +22,7 @@ function Step3({ formData, isYearly, updateFormData, errors }) {
   const [addOns, setAddOns] = useState(initialAddOnsData);
 
   const handleToggleAddOn = (id) => {
-    setAddOns(prevAddOns => 
+    setAddOns(prevAddOns =>
       prevAddOns.map((addOn) =>
         addOn.id === id ? { ...addOn, checked: !addOn.checked } : addOn
       )
@@ -35,43 +35,36 @@ function Step3({ formData, isYearly, updateFormData, errors }) {
     // Para depuración: ver qué se está enviando al padre
     // console.log('useEffect: Actualizando formData con selectedAddOns:', currentSelectedAddOns);
 
-  //? Disable eslint for this useEffect
- // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [addOns]); 
+    //? Disable eslint for this useEffect
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addOns]);
 
   // Si se neceistan los add-ons seleccionados para mostrar algo en ESTE componente:
   //const currentlySelectedForDisplay = addOns.filter((addOn) => addOn.checked);
-   //console.log('Render: AddOns seleccionados para mostrar:', currentlySelectedForDisplay);
+  //console.log('Render: AddOns seleccionados para mostrar:', currentlySelectedForDisplay);
 
 
-useEffect(() => {
-  // Sincronizar el estado interno 'addOns' si hay valores en formData.selectedAddOns
-  // Esto es útil si Step3 puede montarse con add-ons ya seleccionados desde el padre.
-  if (formData && formData.selectedAddOns && formData.selectedAddOns.length > 0) {
-    const parentSelectedIds = new Set(formData.selectedAddOns.map(ao => ao.id)); 
-    setAddOns(prevAddOns => 
-      prevAddOns.map(localAddOn => ({
-        ...localAddOn,
-        checked: parentSelectedIds.has(localAddOn.id)
-      }))
-    );
-  }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+  useEffect(() => {
+    // Sincronizar el estado interno 'addOns' si hay valores en formData.selectedAddOns
+    // Esto es útil si Step3 puede montarse con add-ons ya seleccionados desde el padre.
+    if (formData && formData.selectedAddOns && formData.selectedAddOns.length > 0) {
+      const parentSelectedIds = new Set(formData.selectedAddOns.map(ao => ao.id));
+      setAddOns(prevAddOns =>
+        prevAddOns.map(localAddOn => ({
+          ...localAddOn,
+          checked: parentSelectedIds.has(localAddOn.id)
+        }))
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
 
-   
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-lg mx-auto">
+    <>
       <h2 className="tagH2">Pick add-ons</h2>
-      <p 
-        className="text-gray-400 text-sm mb-6"
-        onClick={() => {
-          console.log('Click debug: AddOns actuales:', addOns.filter(ao => ao.checked));
-          console.log('Click debug: Prop formData actual:', isYearly);
-        }}
-      >
+      <p className="text-gray-400 text-sm mb-6">
         Add-ons help enhance your gaming experience.
       </p>
       <div className="space-y-4 mb-8 sm:mb-10">
@@ -80,11 +73,10 @@ useEffect(() => {
             key={addOn.id}
             htmlFor={addOn.id}
             className={`flex items-center p-4 border rounded-lg cursor-pointer transition-all duration-200 ease-in-out
-                        ${
-                          addOn.checked
-                            ? "border-Purple bg-purple-50/50"
-                            : "border-gray-300 hover:border-Purple"
-                        }`}
+                        ${addOn.checked
+                ? "border-Purple bg-purple-50/50"
+                : "border-gray-300 hover:border-Purple"
+              }`}
           >
             <input
               type="checkbox"
@@ -95,28 +87,27 @@ useEffect(() => {
             />
             <div
               className={`w-5 h-5 border rounded flex items-center justify-center mr-4 flex-shrink-0
-                          ${
-                            addOn.checked
-                              ? "bg-Purple border-Purple" 
-                              : "border-Purple/50 group-hover:border-Purple" 
-                          }`}
+                          ${addOn.checked
+                  ? "bg-Purple border-Purple"
+                  : "border-Purple/50 group-hover:border-Purple"
+                }`}
             >
               {addOn.checked && <CheckIcon />}
             </div>
             <div className="flex-grow">
-              <h3 className="font-medium text-azul/80">{addOn.title}</h3> 
+              <h3 className="font-medium text-azul/80">{addOn.title}</h3>
               <p className="text-sm text-azul/80">{addOn.description}</p>
             </div>
             <span className="text-sm text-Purple font-medium ml-4">
-               {`$${isYearly ?addOn.price:addOn.priceMonthly}${isYearly ? "/yr" : "/mo"}`}
-               </span>
+              {`$${isYearly ? addOn.price : addOn.priceMonthly}${isYearly ? "/yr" : "/mo"}`}
+            </span>
           </label>
         ))}
       </div>
-      {errors && errors.selection && ( 
+      {errors && errors.selection && (
         <p className="text-red-500 text-xs italic mt-1">{errors.selection}</p>
       )}
-    </div>
+    </>
   );
 }
 

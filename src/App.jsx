@@ -113,16 +113,16 @@ function App() {
   };
 
   return (
-
-    <div className="min-h-screen flex flex-col justify-between">
-      {/* DIV IZQUIERDO CON LOS NUMNEROS*/}
+    <div className="min-h-screen w-full flex flex-col md:items-center md:justify-center bg-BlueTwo ">
+    <div className="flex flex-col md:items-center md:justify-center max-w-[1000px] md:p-6 bg-white rounded-xl w-full">
+    {/* DIV NUMEROS, DATOS Y BOTONES INFERIORES) */}
+    <div className="md:flex flex-row md:w-full md:min-h-[550px]">
       <DesktopLeftSide />
-      <div className="bg-blue-100 px-2">
-        {/* DIV DATOS */}
-        <div className="px-4 rounded-2xl transform -translate-y-[78px]  bg-white p-6">
+      <div className="px-2 md:px-26 md:w-full flex flex-col justify-between">
+        {/* DIV DATOS  y BOTONES INFERIORES */}
+        <div className="flex flex-col px-4 md:w-full rounded-2xl transform -translate-y-[78px] md:translate-y-0  bg-white p-6">
           {renderStep()}
         </div>
-      </div>
       <div className="flex py-2">
       {/* DIV BOTONES */}
         {currentStep > 1 && currentStep < 4 && (
@@ -141,6 +141,9 @@ function App() {
           </button>
         )}
       </div>
+      </div>
+        </div>
+    </div>
     </div>
   );
 }
